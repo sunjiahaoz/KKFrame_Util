@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>KKFrameUtilEditor</name>
+    </assembly>
+    <members>
+        <member name="T:KK.Frame.Util.Editor.ConfigEditorWindow">
+            <summary>
+            配置文件编辑器
+            </summary>
+        </member>
+        <member name="M:KK.Frame.Util.Editor.ConfigEditorWindow.LocalParseCSV(System.String,KK.Frame.Util.CsvHelper.OnResourceLoaded,System.Boolean)">
+            <summary>
+            为了我们中国汉字！冲（重(写)）啊
+            </summary>
+            <param name="pathName"></param>
+            <param name="onResourceLoaded"></param>
+            <param name="isRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="T:KK.Frame.Util.Editor.ToolsEditor">
+            <summary>
+            编辑器下常用工具方法
+            </summary>
+        </member>
+        <member name="M:KK.Frame.Util.Editor.ToolsEditor.AddDefineSymble(System.String,UnityEditor.BuildTargetGroup)">
+            <summary>
+            添加宏
+            多个宏请用分号隔开
+            </summary>
+            <param name="strSym"></param>
+            <param name="target">目标平台</param>
+        </member>
+        <member name="M:KK.Frame.Util.Editor.ToolsEditor.RemoveDefineSymble(System.String,UnityEditor.BuildTargetGroup)">
+            <summary>
+            移除宏
+            要移除多个宏请用分号分隔
+            </summary>
+            <param name="strSym"></param>
+            <param name="target">目标平台</param>
+        </member>
+        <member name="M:KK.Frame.Util.Editor.ToolsEditor.OpenFolder(System.String)">
+            <summary>
+            打开指定目录,只能在Windows编辑器下使用
+            </summary>
+            <param name="strFolderPath">文件夹绝对路径</param>
+        </member>
+    </members>
+</doc>

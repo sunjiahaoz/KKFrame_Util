@@ -1,0 +1,1135 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>KKFrameUtil</name>
+    </assembly>
+    <members>
+        <member name="T:KK.Frame.Util.CameraScale">
+            <summary>
+            Camera缩放，请将该脚本放置到与Camera同对象上
+            设置原始尺寸，之后会根据实际尺寸自动缩放摄像头
+            主要用于对3d世界的缩放
+            </summary>
+        </member>
+        <member name="F:KK.Frame.Util.CameraScale.mNormalWidth">
+            <summary>
+            参考宽度，即默认开发时使用的宽度
+            </summary>
+        </member>
+        <member name="F:KK.Frame.Util.CameraScale.mNormallHeight">
+            <summary>
+            参考高度，即默认开发时使用的高度
+            </summary>
+        </member>
+        <member name="T:KK.Frame.Util.CameraShake">
+            <summary>
+            参考Thinksquirrel CameraShake
+            </summary>
+        </member>
+        <member name="F:KK.Frame.Util.CameraShake._lstCameras">
+            <summary>
+            参与shake的摄像头
+            </summary>        
+        </member>
+        <member name="F:KK.Frame.Util.CameraShake._nNumOfShakes">
+            <summary>
+            执行震动的次数
+            </summary>
+        </member>
+        <member name="F:KK.Frame.Util.CameraShake._vec3ShakeAmount">
+            <summary>
+            每个方向上的震动数值
+            </summary>
+        </member>
+        <member name="F:KK.Frame.Util.CameraShake._vec3RotationAmount">
+            <summary>
+            每个方向的旋转数值
+            </summary>
+        </member>
+        <member name="F:KK.Frame.Util.CameraShake._fDistance">
+            <summary>
+            第一次震动的初始化距离
+            </summary>
+        </member>
+        <member name="F:KK.Frame.Util.CameraShake._fSpeed">
+            <summary>
+            震动速度
+            </summary>
+        </member>
+        <member name="F:KK.Frame.Util.CameraShake._fDecay">
+            <summary>
+            衰减速度（0~1），值越高就会越快停止震动
+            </summary>
+        </member>
+        <member name="F:KK.Frame.Util.CameraShake._bMultiplyByTimeScale">
+            <summary>
+            如果设为true,则最终的震动速度会基于TimeScale
+            </summary>
+        </member>
+        <member name="P:KK.Frame.Util.CameraShake.isShaking">
+            <summary>
+            是否正在震动
+            </summary>
+        </member>
+        <member name="P:KK.Frame.Util.CameraShake.isCancelling">
+            <summary>
+            是否正在取消
+            </summary>
+        </member>
+        <member name="E:KK.Frame.Util.CameraShake.cameraShakeStarted">
+            <summary>
+            当一个camera开始震动的时候调用
+            </summary>
+        </member>
+        <member name="E:KK.Frame.Util.CameraShake.allCameraShakesCompleted">
+            <summary>
+            当一个camera完成震动并回到初始原点的时候调用
+            </summary>
+        </member>
+        <member name="M:KK.Frame.Util.CameraShake.DoShake">
+            <summary>
+            执行属性中配置的数据进行震动
+            </summary>
+        </member>
+        <member name="T:KK.Frame.Util.DonotDestroy">
+            <summary>
+            有该组件的对象切换场景不会销毁
+            </summary>
+        </member>
+        <member name="T:KK.Frame.Util.FPSCounter">
+            <summary>
+            在GUI上显示FPS
+            </summary>
+        </member>
+        <member name="T:KK.Frame.Util.GizmoDebugDraw">
+            <summary>
+            挂到对象上可以用于标注该对象的位置Gizmo
+            </summary>
+        </member>
+        <member name="T:KK.Frame.Util.GizmoDebugRect">
+            <summary>
+            指定两个点，Scene场景显示一个矩形
+            </summary>
+        </member>
+        <member name="T:KK.Frame.Util.ParticleFrontScript">
+            <summary>
+            将子对象所有partical显示层级置为指定
+            </summary>
+        </member>
+        <member name="T:KK.Frame.Util.PlayOppBaseMono">
+            <summary>
+            根据Mono的几个关键函数，在某个时机执行指定内容
+            一般作为基类
+            </summary>
+        </member>
+        <member name="T:KK.Frame.Util.PlayOppBaseMono.PlayOpp">
+            <summary>
+            执行时机
+            </summary>
+        </member>
+        <member name="F:KK.Frame.Util.PlayOppBaseMono.PlayOpp.Update">
+            <summary>
+            每帧执行
+            </summary>
+        </member>
+        <member name="F:KK.Frame.Util.PlayOppBaseMono.PlayOpp.Manual">
+            <summary>
+            手动执行
+            </summary>
+        </member>
+        <member name="M:KK.Frame.Util.PlayOppBaseMono.Excute">
+            <summary>
+            执行内容
+            </summary>
+        </member>
+        <member name="T:KK.Frame.Util.VSyncCountSetting">
+            <summary>
+            垂直同步类型
+            </summary>
+        </member>
+        <member name="T:KK.Frame.Util.SetMaxFPS">
+            <summary>
+            设置最大FPS值，放到游戏一开始的对象上面可以设置
+            </summary>
+        </member>
+        <member name="F:KK.Frame.Util.SetMaxFPS.VSyncCount">
+            <summary>
+            用于快捷设置Unity Quanity设置中的垂直同步相关参数  
+            </summary>
+        </member>
+        <member name="F:KK.Frame.Util.SetMaxFPS.MaxNoLimit">
+            <summary>
+            不设限制，保持可达到的最高帧率  
+            </summary>
+        </member>
+        <member name="F:KK.Frame.Util.SetMaxFPS.MaxFPSValue">
+            <summary>
+            帧率的值
+            </summary>
+        </member>
+        <member name="F:KK.Frame.Util.SetMaxFPS._bDebugGuiFPS">
+            <summary>
+            是否在GUI上显示fps
+            </summary>
+        </member>
+        <member name="M:KK.Frame.Util.CryptHelper.EncryptString(System.String)">
+            <summary> 
+             
+            </summary> 
+            <param name="Value"></param> 
+            <returns></returns> 
+        </member>
+        <member name="M:KK.Frame.Util.CryptHelper.DecryptString(System.String)">
+            <summary> 
+             
+            </summary> 
+            <param name="Value"></param> 
+            <returns></returns> 
+        </member>
+        <member name="T:KK.Frame.Util.CsvRow">
+            <summary>
+            Class to store one CSV row
+            </summary>
+        </member>
+        <member name="T:KK.Frame.Util.CsvFileWriter">
+            <summary>
+            Class to write data to a CSV file
+            </summary>
+        </member>
+        <member name="M:KK.Frame.Util.CsvFileWriter.WriteRow(KK.Frame.Util.CsvRow)">
+            <summary>
+            Writes a single row to a CSV file.
+            </summary>
+            <param name="row">The row to be written</param>
+        </member>
+        <member name="T:KK.Frame.Util.CsvFileReader">
+            <summary>
+            Class to read data from a CSV file
+            </summary>
+        </member>
+        <member name="M:KK.Frame.Util.CsvFileReader.ReadRow(KK.Frame.Util.CsvRow)">
+            <summary>
+            Reads a row of data from a CSV file
+            </summary>
+            <param name="row"></param>
+            <returns></returns>
+        </member>
+        <member name="T:KK.Frame.Util.BitContent">
+            <summary>
+            工具类，用于保存适用于只有两种状态值值数量又多的数据，也即用0,1即可表示的数据。
+            用int来保存，一个int可以保存32个数据
+            比如某个序列中的对象是否被标记，即可以用索引来查找或设置数据
+            </summary>
+        </member>
+        <member name="M:KK.Frame.Util.BitContent.Init(System.Int32,System.Int32)">
+            <summary>
+            初始化大小，必须调用
+            </summary>
+            <param name="nObstacleSize">要标记的最大数量</param>
+            <param name="nInit">全部初始化的值，默认为0</param>
+        </member>
+        <member name="M:KK.Frame.Util.BitContent.SetData(System.Int32[],System.Int32)">
+            <summary>
+            通过其他int数据进行设置值
+            </summary>
+            <param name="pObstacleData"></param>
+            <param name="nDataSize"></param>
+        </member>
+        <member name="M:KK.Frame.Util.BitContent.GetDataSize">
+            <summary>
+            获取int数据大小
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.BitContent.GetDataByIndex(System.Int32)">
+            <summary>
+            根据索引过去具体的int数据
+            </summary>
+            <param name="nIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.BitContent.IsNone">
+            <summary>
+            是否所有数据为0
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.BitContent.SetValue(System.Int32,System.Boolean)">
+            <summary>
+            设置指定位置处的bool标记
+            </summary>
+            <param name="nPos">位置，该位置不应该大于初始化时传入的大小</param>
+            <param name="bYes">标记</param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.BitContent.GetValue(System.Int32)">
+            <summary>
+            获取指定位置的标记
+            </summary>
+            <param name="nPos">位置索引，该位置不应该大于初始化时的大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.BitContent.Reset">
+            <summary>
+            重置所有数据为0
+            </summary>
+        </member>
+        <member name="M:KK.Frame.Util.BitContent.DebugOutLog">
+            <summary>
+            log输出
+            </summary>
+        </member>
+        <member name="T:KK.Frame.Util.CustomDictionary`2">
+            <summary>
+            自定义的简单Dictionary，主要是使用两个List进行实现，避免遍历Dict时产生垃圾
+            当然这种实现并不高效，效率敏感的地方不要用,数据量大的也不要用
+            </summary>
+            <typeparam name="T">Key</typeparam>
+            <typeparam name="U">Value</typeparam>
+        </member>
+        <member name="T:KK.Frame.Util.DelayToInvoke">
+            <summary>
+            延迟执行工具
+            需要协程支持
+            </summary>
+        </member>
+        <member name="T:KK.Frame.Util.SimpleFileProcess">
+            <summary>
+            简单的文件或文件夹的处理
+            </summary>
+        </member>
+        <member name="M:KK.Frame.Util.SimpleFileProcess.LoadFile(UnityEngine.TextAsset)">
+            <summary>
+            读取textAsset资源，将每一行返回到ArrayList中
+            </summary>
+            <param name="textAsset">要读取的textAsset</param>
+            <returns>包含每一行数据的列表</returns>
+        </member>
+        <member name="M:KK.Frame.Util.SimpleFileProcess.LoadFile(System.String,System.String)">
+            <summary>
+            读取指定位置的文件，返回每一行的列表
+            </summary>
+            <param name="path">读取文件的路径   </param>
+            <param name="name">读取文件的名称</param>
+            <returns>每行内容</returns>
+        </member>
+        <member name="M:KK.Frame.Util.SimpleFileProcess.LoadFileContent(System.String,System.String)">
+            <summary>
+            读取指定文件，返回文件内容
+            </summary>
+            <param name="path">读取文件的路径</param>
+            <param name="name">读取文件的名称</param>
+            <returns>文件内容</returns>
+        </member>
+        <member name="M:KK.Frame.Util.SimpleFileProcess.LoadFileContent(System.String)">
+            <summary>
+            读取指定文件，返回文件内容
+            </summary>
+            <param name="strPath">文件路径</param>
+            <returns>文件内容</returns>
+        </member>
+        <member name="M:KK.Frame.Util.SimpleFileProcess.CreateDir(System.String)">
+            <summary>
+            创建文件夹
+            </summary>
+            <param name="strPath">文件夹路径</param>
+        </member>
+        <member name="M:KK.Frame.Util.SimpleFileProcess.CreateFile(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            创建文件
+            </summary>
+            <param name="path">文件创建目录</param>
+            <param name="name">文件的名称</param>
+            <param name="info">写入的内容</param>
+            <param name="bOverwrite">如果文件已经存在是否覆盖，否则原有数据后面写</param>
+        </member>
+        <member name="M:KK.Frame.Util.SimpleFileProcess.DeleteFile(System.String,System.String)">
+            <summary>
+            删除指定文件
+            </summary>
+            <param name="path">删除文件的路径</param>
+            <param name="name">删除文件的名称</param>
+        </member>
+        <member name="M:KK.Frame.Util.SimpleFileProcess.DeleteFile(System.String)">
+            <summary>
+            删除指定文件
+            </summary>
+            <param name="strFilePath">文件路径</param>
+        </member>
+        <member name="M:KK.Frame.Util.SimpleFileProcess.FileExists(System.String)">
+            <summary>
+            判断文件是否存在
+            </summary>
+            <param name="strFile">文件路径</param>
+            <returns>存在则为true</returns>
+        </member>
+        <member name="M:KK.Frame.Util.SimpleFileProcess.CopyFileTo(System.String,System.String,System.Boolean)">
+            <summary>
+            复制文件到指定目录
+            </summary>
+            <param name="strFilePath">要复制的文件，是个文件</param>
+            <param name="strFolderTo">要复制到的目录，是个目录</param>
+            <param name="bIsRewrite">如果目的目录有同名文件是否覆盖</param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.SimpleFileProcess.CopyFile(System.String,System.String,System.Boolean)">
+            <summary>
+            复制文件到指定文件名称
+            </summary>
+            <param name="strFilePath">源文件</param>
+            <param name="strFileNewPath">新的文件</param>
+            <param name="bIsRewrite">如果新的文件名称已经存在是否要覆盖</param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.SimpleFileProcess.MoveFileTo(System.String,System.String,System.Boolean)">
+            <summary>
+            移动文件到指定目录
+            </summary>
+            <param name="strFilePath">要移动的文件，是个文件</param>
+            <param name="strFolderTo">要移动到的目录，是个目录</param>
+            <param name="bIsRewrite">如果目的目录有同名文件是否覆盖</param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.SimpleFileProcess.FolderExists(System.String)">
+            <summary>
+            指定文件夹是否存在
+            </summary>
+            <param name="strFolderPath">文件夹路径</param>
+            <returns>存在则为true</returns>
+        </member>
+        <member name="M:KK.Frame.Util.SimpleFileProcess.CreateFolder(System.String)">
+            <summary>
+            创建文件夹
+            </summary>
+            <param name="strFolderPath">文件夹路径</param>
+            <returns>成功返回true</returns>
+        </member>
+        <member name="M:KK.Frame.Util.SimpleFileProcess.DeleteFolder(System.String)">
+            <summary>
+            删除指定的目录
+            </summary>
+            <param name="strFolderPath">文件夹名称</param>
+            <returns>成功返回true</returns>
+        </member>
+        <member name="M:KK.Frame.Util.SimpleFileProcess.CopyFolder(System.String,System.String)">
+            <summary>
+            复制文件夹到指定目录路径
+            </summary>
+            <param name="strSrc"></param>
+            <param name="strDst"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.SimpleFileProcess.CopyFolderTo(System.String,System.String,System.Boolean)">
+            <summary>
+            复制目录到指定目录下面
+            </summary>
+            <param name="strFolderSrc">要复制的目录路径</param>
+            <param name="strFolderTo">要复制到的目录路径，源目录会被复制到这个目录的下面</param>
+            <param name="bIsRewrite">如果目的目录中已经存在同名目录，则会先删除</param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.SimpleFileProcess.MoveFolderTo(System.String,System.String,System.Boolean)">
+            <summary>
+            移动目录到指定目录下面
+            </summary>
+            <param name="strFolderSrc">要移动的文件夹</param>
+            <param name="strFolderTo">目的地文件夹。源文件夹会在这个目录下面</param>
+            <param name="bIsRewrite">如果目的文件夹已经有同名的文件夹存在，则会先删除</param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.SimpleFileProcess.TravelFilesInFolder(System.String,System.Action{System.String},System.String,System.Boolean)">
+            <summary>
+            遍历指定路径文件夹下的所有文件
+            </summary>
+            <param name="strFolderRoot">要遍历的文件夹路径</param>
+            <param name="actionPath">遍历操作</param>
+            <param name="strSeachPattern">搜索过滤，正则表达式</param>
+            <param name="bIterator">是否迭代搜索</param>
+        </member>
+        <member name="M:KK.Frame.Util.SimpleFileProcess.TravelFoldersInFolder(System.String,System.Action{System.String},System.String,System.Boolean)">
+            <summary>
+            遍历指定路径文件夹下的文件夹
+            </summary>
+            <param name="strFolderRoot">要遍历的文件夹路径</param>
+            <param name="actionPath">遍历操作</param>
+            <param name="strSeachPattern">搜索过滤，正则表达式</param>
+            <param name="bIterator">是否迭代搜索</param>
+        </member>
+        <member name="M:KK.Frame.Util.SimpleFileProcess.GetDirectoryLength(System.String)">
+            <summary>
+            获得一个目录的大小
+            </summary>
+            <param name="dirPath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.SimpleFileProcess.FileSize(System.String)">
+            <summary>
+            获得某个文件的大小
+            </summary>
+            <param name="filePath"></param>
+            <returns></returns>
+        </member>
+        <member name="T:KK.Frame.Util.ToolsUseful">
+            <summary>
+            常用工具方法
+            </summary>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.TranslateColorToCode(UnityEngine.Color)">
+            <summary>
+            将颜色转成16进制的编码，比如红色(255,0,0)转成字符串：ff0000
+            </summary>
+            <param name="color"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.TranslateIntToColor(System.Int32)">
+            <summary>
+            将一个int值转换成颜色
+            这个int值需要符合以下规则：最多有9为数，每隔3为表示一个颜色分量，值为000~255，从前到后为RGB的分量
+            比如 int值为255255255，则该颜色就表示Color(1,1,1)了。
+            比如255000,该颜色表示没有R为0，颜色为Color(0,1,0)
+            再比如0，就是(0,0,0)了
+            </summary>
+            <param name="nColorInt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.TranslateCodeToColor(System.String)">
+            <summary>
+            将颜色的16进制编码转换成颜色，
+            比如ff0000,转换成Color(1, 0, 0)
+            </summary>
+            <param name="strCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.ConvertIntDateTime(System.Double)">
+            <summary>
+            将Unix时间戳转换为DateTime类型时间
+            </summary>
+            <param name="d">double 型数字</param>
+            <returns>DateTime</returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.ConvertSecToDay(System.Int32)">
+            <summary>
+            转换秒为天，向上取整
+            </summary>
+            <param name="nSec"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.RoundDownToDay(System.Int32)">
+            <summary>
+            转换秒为天，向下取整
+            </summary>
+            <param name="nSec"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.ConvertDateTimeInt(System.DateTime)">
+            <summary>
+            将c# DateTime时间格式转换为Unix时间戳格式
+            </summary>
+            <param name="time">时间</param>
+            <returns>double</returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.Retain2Decimals(System.Single)">
+            <summary>
+            保留两位小数
+            </summary>
+            <param name="fValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.GenerateCoolDownTime_hms(System.Int32)">
+            <summary>
+            把秒转换成时间字符串 
+            比如128秒换成：00:02:08
+            </summary>
+            <param name="nTotalSec">要转换的秒</param>
+            <returns>转换后的字符串</returns>        
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.GenerateCoolDownTime_ms(System.Int32)">
+            <summary>
+            转换成分秒 00:00 
+            </summary>
+            <param name="nTotalSec"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.GenerateCoolDownTime_hm(System.Int32)">
+            <summary>
+            转换成时分 00:00
+            </summary>
+            <param name="nTotalSec"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.TranslateIntToString(System.Int32)">
+            <summary>
+            转换一个整数位字符串，每隔三位会有一个逗号，比如
+            12345678转换为“12,345,678”
+            </summary>
+            <param name="nInt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.TranslateMeterToKilometer(System.Single,System.String@)">
+            <summary>
+            检测并转换米为千米
+            当数值大于1000的时候转换为千米的单位
+            比如如果参数为56则返回值为字符串"56m"
+            如果参数为1233467,则返回值为"1233.46km"
+            </summary>
+            <param name="fMeter">要转换的米</param>
+            <param name="strOut">输出转换后的字符串</param>
+            <returns>如果需要转换则返回true，不需要转换返回false</returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.ClampCircleData(System.Int32,System.Int32)">
+            <summary>
+            将nCheckData转换为[0,nTotalData)之间的值，
+            如果nCheckData>=nTotalData,则又从0开始重新计算
+            </summary>
+            <param name="nCheckData"></param>
+            <param name="nTotalData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.MathLog2(System.Int32)">
+            <summary>
+            一般定义枚举的时候会用到这样的值： 
+            1 左移 1 == 2
+            1 左移 2 == 4
+            ....
+            这个函数就是知道一个值比如4，求这个值是左移了几位
+            MathLog2(4) == 2
+            </summary>
+            <param name="nValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.CheckLayerIndexEqual(System.Int32,System.String)">
+            <summary>
+            检测指定层索引与指定层是否相同
+            </summary>
+            <param name="nCheckLayerIndex">[1~31]</param>
+            <param name="strLayerName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.GetLayerIndex(System.String)">
+            <summary>
+            根据层的名称获取该层的索引[1～31]
+            </summary>
+            <param name="strLayerName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.GetLayerValue(System.String)">
+            <summary>
+            根据层的名称获取该层的值
+            </summary>
+            <param name="strLayerName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.GetLayerValue(System.Int32)">
+            <summary>
+            根据层索引获取该层的值
+            </summary>
+            <param name="nLayerIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.GetLayersCombineValue(System.String[])">
+            <summary>
+            获取多个层的混合之后的值
+            </summary>
+            <param name="strLayerNames"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.CheckLayerContainedGo(UnityEngine.LayerMask,UnityEngine.GameObject)">
+            <summary>
+            检测goCheck的layer是否在LayerMask中
+            </summary>
+            <param name="lmContainer"></param>
+            <param name="goCheck"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.ChangeGoLayer(UnityEngine.GameObject,System.String,System.Boolean)">
+            <summary>
+            设置Layer，包括对象的所有子对象
+            </summary>
+            <param name="go"></param>
+            <param name="strLayerName"></param>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.GenerateDistance(UnityEngine.Vector3[])">
+            <summary>
+            计算传入的路径点的路程
+            </summary>
+            <param name="poses"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.LookDir(UnityEngine.Vector3,UnityEngine.Vector3)">
+            <summary>
+            返回朝向的单位向量
+            </summary>
+            <param name="from"></param>
+            <param name="to"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.LookRotate(UnityEngine.Transform,UnityEngine.Transform,UnityEngine.Vector3)">
+            <summary>
+            设置body的朝向为看向trTarget        
+            </summary>
+            <param name="trBody"></param>
+            <param name="trTarget"></param>
+            <param name="fromDir"></param>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.ClampRectInScreen(UnityEngine.Vector3,System.Single,System.Single,UnityEngine.Camera)">
+            <summary>
+            详见一个它的重载函数。
+            只不过Rect的描述变成了一个左上角坐标以及宽高。
+            </summary>
+            <param name="posLeftTop"></param>
+            <param name="fRectWidth"></param>
+            <param name="fRectHeigh"></param>
+            <param name="screenCam"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.ClampRectInScreen(UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.Camera)">
+            <summary>
+            将一个Rect的区域限定在一个屏幕中。这个Rect是由左上角坐标与右下角坐标来描述的。
+            主要用于比如Tips的窗口显示，有时tips会超出屏幕，所以使用这个函数可以返回一个让Tips完全显示在屏幕上的位置（如果该rect尺寸大于屏幕，那就不管了）
+            返回的坐标就是一个新的左上角坐标
+            </summary>
+            <param name="posLeftTop">左上角坐标</param>
+            <param name="posRightBottom">右下角坐标</param>
+            <param name="screenCam">屏幕摄像机</param>
+            <returns>如果该rect完全在屏幕中了，则返回原来的左上角坐标。否则会返回一个经过计算的新的左上角坐标</returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.GetWorldPos(UnityEngine.Vector2,UnityEngine.Camera)">
+            <summary>
+            屏幕坐标转世界坐标
+            </summary>
+            <param name="screenPos"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.GetScreenPos(UnityEngine.Vector3,UnityEngine.Camera)">
+            <summary>
+            世界坐标转屏幕坐标
+            </summary>
+            <param name="worldPos"></param>
+            <param name="useCamera"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.GetViewportPointFromWorldPos(UnityEngine.Vector3,UnityEngine.Camera)">
+            <summary>
+            世界坐标转视口坐标
+            </summary>
+            <param name="worldPos"></param>
+            <param name="useCamera"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.WorldToCanvas(UnityEngine.RectTransform,UnityEngine.Vector3,UnityEngine.Camera)">
+            <summary>
+            世界坐标转画布坐标
+            </summary>
+            <param name="rectTr"></param>
+            <param name="world_position"></param>
+            <param name="camera"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.GenerateScreenToAppearPos(System.Single,System.Single)">
+            <summary>
+            转换屏幕坐标到世界坐标。
+            参数并不是屏幕坐标，而是比例，以左下角为原点，参数为1,1的话，就是屏幕的右上角了
+            </summary>
+            <param name="fWidthScale">X方向的屏幕比例位置</param>
+            <param name="fHeightScale">Y方向的屏幕比例位置</param>
+            <returns>世界坐标，Z为0</returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.CoordTranslateToIndex(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            二维坐标转为一维索引
+            </summary>
+            <param name="nXPos"></param>
+            <param name="nYPos"></param>
+            <param name="nWidth">二维宽度</param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.IndexTranslateToCoord(System.Int32,System.Int32)">
+            <summary>
+            一维索引转换为二维坐标
+            </summary>
+            <param name="nIndex">一维索引</param>
+            <param name="nWidth">二维宽度</param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.CoordTranslateToIndex(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            三维坐标转一维坐标
+            </summary>
+            <param name="nXPos"></param>
+            <param name="nYPos"></param>
+            <param name="nZPos"></param>
+            <param name="nMaxCountY"></param>
+            <param name="nMaxCountZ"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.IndexTranslateToCoord(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            一维坐标转三维坐标
+            </summary>
+            <param name="nIndex">一维索引</param>
+            <param name="nMaxCountY">y方向最大数量</param>
+            <param name="nMaxCountZ">z方向最大数量</param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.CheckIndexInMapRange(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            检测指定索引是否在一个二维范围内
+            </summary>
+            <param name="nIndex"></param>
+            <param name="nWidth"></param>
+            <param name="nHeight"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.GeneratePointToPlaneDist(UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.Vector3)">
+            <summary>
+            计算点到平面的距离
+            </summary>
+            <param name="pt">平面外的一点</param>
+            <param name="ptInPlane">平面内的一点</param>
+            <param name="normalPlane">平面的法线向量</param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.GetIntersectWithLineAndPlane(UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.Vector3)">
+            <summary>
+            获取线与平面的交点
+            </summary>
+            <param name="ptOnLine">线上的一点</param>
+            <param name="dirLine">线的方向</param>
+            <param name="planeNormal">面的垂直向量</param>
+            <param name="ptOnPlane">面上的一点</param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.DefaultGetComponent``1(UnityEngine.GameObject)">
+            <summary>
+            获取obj的T组件，如果没有，则自动Add并返回
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.DestroyChildren(UnityEngine.Transform,System.Func{UnityEngine.Transform,System.Boolean},System.Boolean)">
+            <summary>
+            删除符合条件的子对象
+            如果没有条件，就是删除所有子对象
+            </summary>
+            <param name="root">根节点</param>
+            <param name="destroyCondition">删除条件，返回值为bool，参数为一个子对象</param>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.DeleteChildren(UnityEngine.Transform,System.Action{UnityEngine.GameObject})">
+            <summary>
+            删除所有子对象
+            </summary>
+            <param name="trRoot"></param>
+            <param name="actionDestroy">自定义的销毁函数，比如使用内存池，如果为空表示使用GameObject.Destroy</param>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.ProcessChildren(UnityEngine.Transform,System.Action{UnityEngine.Transform},System.Boolean)">
+            <summary>
+            遍历子对象进行一些操作
+            </summary>
+            <param name="root">要遍历的根</param>
+            <param name="processChild">要对子对象进行的操作</param>
+            <param name="bInteration">是否迭代，即是否也对子对象的子对象进行操作</param>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.GenerateItemTreePath(UnityEngine.Transform,System.String@,UnityEngine.Transform)">
+            <summary>
+            获取某个对象在目录树上的位置，通过字符串返回
+            以后就可以使用GameObject.Find找到这个对象了
+            </summary>
+            <param name="trs">一个对象的位置</param>
+            <param name="strOutPath">返回的路径</param>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.CreateNullGameObjec(System.String)">
+            <summary>
+            获取一个空的gameobject对象，用来感谢坏事
+            </summary>
+            <param name="strName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.GetComponentsInChildren``1(``0,System.Boolean,System.Boolean)">
+            <summary>
+            获取某个节点的子节点
+            因为GetComponentsInChildren会将自己本身也获得，所以用这个方法来提供规避
+            </summary>
+            <param name="trRoot"></param>
+            <param name="bIncludeRoot">是否包含自身</param>
+            <param name="bIncludInactive">是否包含inactive的</param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.GetEnumLength(System.Type)">
+            <summary>
+            返回枚举类型的枚举数量
+            int nCount = GetEnumLength(typeof(MyEnum));
+            </summary>
+            <param name="EnumType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.GetEnumNameString(System.Type,System.Object)">
+            <summary>
+            将枚举转换成字符串
+            string strName = GetEnumNameString(typeof(MyEnum), MyEnum.EnumType1)
+            此时 strName = "EnumType1";
+            </summary>
+            <param name="EnumType"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.TravelProcessEnum``1(System.Action{``0})">
+            <summary>
+            遍历枚举
+            </summary>
+            <typeparam name="T">枚举类型</typeparam>
+            <param name="actionProcess">处理函数</param>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.OnFadeInOrOutValue(System.Single,System.Single,System.Single,System.Action{System.Single},System.Action,System.Single)">
+            <summary>
+            从那个对sprite淡入淡出的函数抽出来的，使得更通用一点
+            </summary>
+            <param name="fDuration">变化持续时间</param>
+            <param name="fStartValue">开始值</param>
+            <param name="fEndValue">变化到的值</param>
+            <param name="actionPerUpdate">每次更新执行的东西</param>
+            <param name="actionComplete">变化完成执行的东西</param>
+            <param name="fStartDelay">开始延迟</param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.ReplayParticleRoot(UnityEngine.Transform)">
+            <summary>
+            重新播放粒子特效
+            </summary>
+            <param name="particleRoot"></param>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.HashString(System.String)">
+            <summary>
+            md5加密
+            </summary>
+            <param name="sourceString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.HashData(System.IO.Stream,System.String)">
+            <summary>
+            流hash, algName = sha1或md5
+            </summary>
+            <param name="stream">要哈希的数据流</param>
+            <param name="algName">值为 sha1 或 md5</param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.HasChinese(System.String)">
+            <summary>
+            判断字符串中是否包含中文
+            </summary>
+            <param name="str">需要判断的字符串</param>
+            <returns>判断结果</returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.UTF8ToGB2312(System.String)">
+            <summary>
+            数据格式转换，从utf8转换为gb2312
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.GB2312ToUTF8(System.String)">
+            <summary>
+            数据格式转换，从gb2312转换为utf8
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.CaptureCamera(System.String,UnityEngine.Rect,UnityEngine.Camera[])">
+            <summary>  
+            对相机截图。   
+            </summary>  
+            <param name="strSaveToPath">要保存到的路径</param>
+            <param name="rect">Rect.截屏的区域</param>  
+            <param name="camera">Camera.要被截屏的相机,相机不能是SkyBOx的</param>  
+            <returns>The screenshot2.</returns>  
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.CaptureByUnity(System.String)">
+            <summary>  
+            使用Application类下的CaptureScreenshot()方法实现截图  
+            优点：简单，可以快速地截取某一帧的画面、全屏截图  
+            缺点：不能针对摄像机截图，无法进行局部截图  
+            </summary>  
+            <param name="mFileName">M file name.</param>  
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.CaptureByRect(UnityEngine.Rect,System.String,System.Action{System.String,UnityEngine.Texture2D})">
+            <summary>  
+            根据一个Rect类型来截取指定范围的屏幕  
+            左下角为(0,0)  
+            </summary>  
+            <param name="mRect">M rect.</param>  
+            <param name="mFileName">M file name.</param>  
+            <param name="actionAfterCapture">截图结束后的操作，参数为文件路径以及texture2D的 引用</param>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.CaptureByRect(UnityEngine.Transform,UnityEngine.Transform,UnityEngine.Camera,System.String,System.Action{System.String,UnityEngine.Texture2D})">
+            <summary>
+            对上面这个的做一次封装，可以通过获取两个Transform的坐标点获取rect进行截图
+            </summary>
+            <param name="trLB">左下角的点</param>
+            <param name="trRT">右上角的点</param>
+            <param name="cam">截图所在Cam</param>
+            <param name="mFileName">文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.TrueLength(System.String)">
+            <summary>
+            统计中英文长度
+            比如 “你好1”返回5
+            “你好”返回4
+            “1” 返回1
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.Truncation(System.String,System.Int32)">
+            <summary>
+             中英文字符串截取，超过指定长度就加...
+            </summary>
+            <param name="str"></param>
+            <param name="len"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.GetStackInfo">
+            <summary>
+            获取调用堆栈信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.Hash(System.Object[])">
+            <summary>
+            直接将参数转为hashtable,所以比要求必须为偶数数量
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.GetTableParam``1(System.Collections.Hashtable,System.String,``0@)">
+            <summary>
+            从hashTable中获取T类型的参数
+            如果存在则通过tOut返回，并且函数返回值为true
+            否则函数返回值为false
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="tableParam">要从那个table获取</param>
+            <param name="strKey">key</param>
+            <param name="tOut">如果存在则会填充该值</param>
+            <returns>如果存在key则返回true, 否则返回false</returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.SortDictionary``2(System.Collections.Generic.Dictionary{``0,``1},System.Comparison{System.Collections.Generic.KeyValuePair{``0,``1}})">
+            <summary>
+            Dict排序功能
+            </summary>
+            <typeparam name="Tk"></typeparam>
+            <typeparam name="Tv"></typeparam>
+            <param name="dic"></param>
+            <param name="customSortFunc">排序方法</param>
+            <returns>返回排序后的dict</returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.SortList``1(System.Collections.Generic.List{``0}@,System.Comparison{``0})">
+            <summary>
+            list排序
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="lst"></param>
+            <param name="customSortFunc"></param>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.Shuffle(System.Collections.IList)">
+            <summary>
+            洗牌，列表重新排列
+            </summary>
+            <param name="source"></param>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.CombineList``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{``0})">
+            <summary>
+            合并两个List，返回一个新的List
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="lst1"></param>
+            <param name="lst2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.CombineDict``2(System.Collections.Generic.Dictionary{``0,``1},System.Collections.Generic.Dictionary{``0,``1},System.Boolean)">
+            <summary>
+            合并两个此点
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <param name="dictDest">合并后的目标词典</param>
+            <param name="dictSrc">要合并的此点</param>
+            <param name="bOverrideKeySame">如果目标词典中已经存在KEY，是否覆盖掉，否则就过掉</param>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.DebugOutList``1(System.Collections.Generic.IList{``0},System.Boolean)">
+            <summary>
+            调试测试输出一个list，使用元素的ToString
+            </summary>
+            <typeparam name="T">元素类型</typeparam>
+            <param name="lst">输出lst</param>
+            <param name="bAlone">每个元素输出一行log还是全部用一行log,true为每个一行</param>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.TravelList``1(System.Collections.Generic.IList{``0},System.Action{``0})">
+            <summary>
+            快捷遍历列表
+            </summary>
+            <typeparam name="T">元素类型</typeparam>
+            <param name="list">列表</param>
+            <param name="actionProcess">每个元素的遍历函数</param>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.TravelDict``2(System.Collections.Generic.Dictionary{``0,``1},System.Action{``1})">
+            <summary>
+            快捷遍历字典
+            </summary>
+            <typeparam name="T">元素类型Key</typeparam>
+            <typeparam name="V">元素类型Value</typeparam>
+            <param name="dict">要遍历的dict</param>
+            <param name="actionProcess">每个元素Value的执行函数</param>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.GetCenterIndexList``1(System.Collections.Generic.List{``0},System.Int32,System.Collections.Generic.List{System.Int32}@)">
+            <summary>
+            找到lstSrc中在中间位置的nCount个元素，并将这些元素的索引按顺序赋值给lstIndexInCenter
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="lstSrc"></param>
+            <param name="nCount"></param>
+            <param name="lstIndexInCenter"></param>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.BitContain(System.Int32,System.Int32)">
+            <summary>
+            检查2的幂的包含情况
+            检查ncheckValue是否包含在nContain中
+            比如nContain为 2 + 4 = 6，nCheckValue = 1
+            则返回false， 如果nCheckValue = 2， 则返回true    /// 
+            </summary>
+            <param name="nContain">容器值</param>
+            <param name="nCheckValue">这个值必须是2的幂的值或几个2的幂的值的和</param>
+            <returns></returns>
+        </member>
+        <member name="M:KK.Frame.Util.ToolsUseful.BitValue(System.Int32,System.Int32)">
+            <summary>
+            位中索引值， 
+            </summary>
+            <param name="nContain"></param>
+            <param name="nIndex">0 ~ 31</param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:KK.Frame.Util.ToolsUseful.BitRemove(System.Int32,System.Int32)" -->
+        <member name="M:KK.Frame.Util.ToolsUseful.BitAdd(System.Int32,System.Int32)">
+            <summary>
+            在位中添加一些值
+            其实就是或操作了
+            比如 2 | 6 = 6
+            2 | 4 = 6
+            </summary>
+            <param name="nContain"></param>
+            <param name="nAdd"></param>
+            <returns></returns>
+        </member>
+        <member name="F:KK.Frame.Util.ToolsUseful.MaxIntCanUse">
+            <summary>
+            int.MaxValue == 2147483647 但实际用的时候会当-1用，所以这里使用它的前一个值
+            </summary>
+        </member>
+        <member name="F:KK.Frame.Util.ToolsUseful.GoldPointRadio">
+            <summary>
+            黄金比例分割点
+            </summary>
+        </member>
+    </members>
+</doc>
