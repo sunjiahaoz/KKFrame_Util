@@ -1,5 +1,5 @@
 using System;
-namespace sunjiahaoz
+namespace KK.Frame.Util
 {
     public class FSMState<T, U>
     {

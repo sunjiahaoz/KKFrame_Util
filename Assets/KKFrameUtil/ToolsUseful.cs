@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using UnityEngine;
+using System.Security.Cryptography;
 
 namespace KK.Frame.Util
 {
@@ -809,6 +810,28 @@ namespace KK.Frame.Util
         }
 
         /// <summary>
+        /// 删除所有子对象
+        /// </summary>
+        /// <param name="trRoot"></param>
+        public static void DeleteChildren(Transform trRoot)
+        {
+            if (trRoot == null)
+                return;
+            if (trRoot.childCount == 0)
+                return;
+
+            for (int i = 0; i < trRoot.childCount;)
+            {
+                Transform child = trRoot.GetChild(i);
+                if (child == null)
+                    i++;
+                child.SetParent(null);
+                ObjectPoolController.Destroy(child.gameObject);
+                child = null;
+            }
+        }
+
+        /// <summary>
         /// 遍历子对象进行一些操作
         /// </summary>
         /// <param name="root">要遍历的根</param>
@@ -979,6 +1002,21 @@ namespace KK.Frame.Util
         #region _工具_
 
         /// <summary>
+        /// md5加密
+        /// </summary>
+        /// <param name="sourceString"></param>
+        /// <returns></returns>
+        public static string HashString(string sourceString)
+        {
+            byte[] result = Encoding.Default.GetBytes(sourceString);
+            MD5 md5 = new MD5CryptoServiceProvider();
+            byte[] source = md5.ComputeHash(result);
+            string strMD5 = BitConverter.ToString(source).Replace("-", "");
+
+            return strMD5.ToLower();
+        }
+
+        /// <summary>
         /// 流hash, algName = sha1或md5
         /// </summary>
         /// <param name="stream">要哈希的数据流</param>
@@ -1007,6 +1045,16 @@ namespace KK.Frame.Util
             }
             byte[] resultByteAr = algorithm.ComputeHash(stream);
             return BitConverter.ToString(resultByteAr).Replace("-", "");
+        }
+
+        /// <summary>
+        /// 判断字符串中是否包含中文
+        /// </summary>
+        /// <param name="str">需要判断的字符串</param>
+        /// <returns>判断结果</returns>
+        public static bool HasChinese(string str)
+        {
+            return System.Text.RegularExpressions.Regex.IsMatch(str, @"[\u4e00-\u9fa5]");
         }
 
         /// <summary>

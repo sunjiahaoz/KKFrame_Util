@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System;
 
-namespace sunjiahaoz
+namespace KK.Frame.Util
 {
     public class FiniteStateMachine<T, U>
     {

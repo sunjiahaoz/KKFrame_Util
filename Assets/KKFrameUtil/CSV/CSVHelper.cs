@@ -6,9 +6,7 @@ using System.Text;
 namespace KK.Frame.Util
 {
     public class CsvHelper
-    {
-        public delegate void OnCSVLoaded(string name);
-        public static OnCSVLoaded onCSVLoaded;
+    {        
         public delegate void OnResourceLoaded(List<CsvRow> rows);
 
         public static List<CsvRow> ParseCSV_Exp(string pathNameInResource)
@@ -159,9 +157,7 @@ namespace KK.Frame.Util
 #endif
             List<CsvRow> rows = ParseText(text);
             if (null != onResourceLoaded)
-                onResourceLoaded(rows);
-            if (null != onCSVLoaded)
-                onCSVLoaded(pathNameInResource);
+                onResourceLoaded(rows);           
             return rows;
 
         }
@@ -172,8 +168,6 @@ namespace KK.Frame.Util
             {
                 if (m_Buff[szName] != null)
                     m_Buff[szName](rows);
-                if (null != onCSVLoaded)
-                    onCSVLoaded(szName);
             }
         }
 

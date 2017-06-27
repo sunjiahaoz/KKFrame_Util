@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace sunjiahaoz
+namespace KK.Frame.Util
 {
     public class FSMMono<T, U> : MonoBehaviour, IFSM<T,U>
     {
