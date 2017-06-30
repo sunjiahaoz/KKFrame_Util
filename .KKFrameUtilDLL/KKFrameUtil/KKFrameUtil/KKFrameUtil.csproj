@@ -26,7 +26,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;UNITY_5</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\KKFrameUtil.XML</DocumentationFile>
@@ -63,8 +63,10 @@
     <Compile Include="Other\CustomDictionary.cs" />
     <Compile Include="Other\DelayToInvoke.cs" />
     <Compile Include="Other\KKMonoBehaviour.cs" />
+    <Compile Include="Other\PoolableObject.cs" />
     <Compile Include="Other\SimpleFileProcess.cs" />
     <Compile Include="Other\ToolsUseful.cs" />
+    <Compile Include="Other\UnitySingleton.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SteerTrack\Bezier.cs" />
     <Compile Include="SteerTrack\SteeringAccelerated.cs" />
